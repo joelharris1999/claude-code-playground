@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Joel Harris — Developer</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <nav>
+      <a href="#" class="logo">JH</a>
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#work">Work</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <button id="theme-toggle" aria-label="Toggle dark/light mode">
+        <span class="icon-sun">☀️</span>
+        <span class="icon-moon">🌙</span>
+      </button>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-content">
+        <p class="eyebrow">Hello, I'm</p>
+        <h1>Joel Harris</h1>
+        <p class="tagline">Software developer building clean, thoughtful products.</p>
+        <div class="hero-actions">
+          <a href="#work" class="btn btn-primary">See my work</a>
+          <a href="#contact" class="btn btn-secondary">Get in touch</a>
+        </div>
+      </div>
+      <div class="hero-visual" aria-hidden="true">
+        <div class="avatar">JH</div>
+      </div>
+    </section>
+
+    <section id="about" class="section">
+      <div class="container">
+        <h2 class="section-title">About me</h2>
+        <div class="about-grid">
+          <p>I'm a full-stack developer with a passion for building products that are fast, accessible, and easy to use. I care deeply about the details — both in code and in design.</p>
+          <p>When I'm not writing code, you'll find me reading, running, or tinkering with side projects. I'm always looking for interesting problems to solve.</p>
+        </div>
+        <div class="skills">
+          <span class="skill-tag">TypeScript</span>
+          <span class="skill-tag">React</span>
+          <span class="skill-tag">Node.js</span>
+          <span class="skill-tag">Python</span>
+          <span class="skill-tag">PostgreSQL</span>
+          <span class="skill-tag">AWS</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="work" class="section section-alt">
+      <div class="container">
+        <h2 class="section-title">Selected work</h2>
+        <div class="cards">
+          <article class="card">
+            <div class="card-tag">Web App</div>
+            <h3>Project Alpha</h3>
+            <p>A real-time collaboration tool built with React and WebSockets. Handles thousands of concurrent users with sub-100ms latency.</p>
+            <a href="#" class="card-link">View project →</a>
+          </article>
+          <article class="card">
+            <div class="card-tag">API</div>
+            <h3>Data Pipeline</h3>
+            <p>An event-driven data pipeline processing millions of records daily using Python, Kafka, and PostgreSQL.</p>
+            <a href="#" class="card-link">View project →</a>
+          </article>
+          <article class="card">
+            <div class="card-tag">Open Source</div>
+            <h3>CLI Toolkit</h3>
+            <p>A collection of developer tools that automate repetitive tasks. Over 2k stars on GitHub.</p>
+            <a href="#" class="card-link">View project →</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="section">
+      <div class="container container-narrow">
+        <h2 class="section-title">Get in touch</h2>
+        <p class="contact-intro">I'm open to new opportunities, collaborations, and interesting conversations. Drop me a line.</p>
+        <a href="mailto:joel.harris@proximagroup.com" class="btn btn-primary">Send an email</a>
+        <div class="social-links">
+          <a href="#" aria-label="GitHub">GitHub</a>
+          <a href="#" aria-label="LinkedIn">LinkedIn</a>
+          <a href="#" aria-label="Twitter">Twitter</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>© 2026 Joel Harris. Built with HTML, CSS & JS.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
