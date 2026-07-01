@@ -1,36 +1,9 @@
-/* ── Tokens ── */
-:root {
-  --bg: #ffffff;
-  --bg-alt: #f5f5f5;
-  --surface: #ffffff;
-  --border: #e5e5e5;
-  --text: #111111;
-  --text-muted: #555555;
-  --accent: #2563eb;
-  --accent-hover: #1d4ed8;
-  --radius: 10px;
-  --transition: 0.2s ease;
-}
-
-[data-theme="dark"] {
-  --bg: #0f0f0f;
-  --bg-alt: #1a1a1a;
-  --surface: #1a1a1a;
-  --border: #2a2a2a;
-  --text: #f0f0f0;
-  --text-muted: #999999;
-  --accent: #3b82f6;
-  --accent-hover: #60a5fa;
-}
-
 /* ── Reset ── */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; }
 body {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   background: var(--bg);
   color: var(--text);
-  line-height: 1.6;
   transition: background var(--transition), color var(--transition);
 }
 a { color: inherit; text-decoration: none; }
@@ -128,26 +101,6 @@ ul { list-style: none; }
   margin: 0 auto;
 }
 .hero-content { max-width: 520px; }
-.eyebrow {
-  font-size: 0.9rem;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  color: var(--accent);
-  font-weight: 600;
-  margin-bottom: 0.5rem;
-}
-h1 {
-  font-size: clamp(2.5rem, 6vw, 4rem);
-  font-weight: 800;
-  line-height: 1.1;
-  letter-spacing: -0.02em;
-  margin-bottom: 1rem;
-}
-.tagline {
-  font-size: 1.2rem;
-  color: var(--text-muted);
-  margin-bottom: 2rem;
-}
 .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
 
 .avatar {
@@ -166,17 +119,6 @@ h1 {
 
 /* ── Page hero (inner pages) ── */
 .page-hero { padding-bottom: 1rem; }
-.page-title {
-  font-size: clamp(2rem, 5vw, 3rem);
-  font-weight: 800;
-  letter-spacing: -0.02em;
-  margin-bottom: 0.75rem;
-}
-.page-subtitle {
-  font-size: 1.1rem;
-  color: var(--text-muted);
-  max-width: 560px;
-}
 
 /* ── Buttons ── */
 .btn {
@@ -203,13 +145,6 @@ h1 {
 }
 .container { max-width: 1100px; margin: 0 auto; }
 .container-narrow { max-width: 600px; margin: 0 auto; text-align: center; }
-.section-title {
-  font-size: 1.8rem;
-  font-weight: 700;
-  margin-bottom: 2rem;
-  letter-spacing: -0.02em;
-}
-.text-muted { color: var(--text-muted); }
 
 /* ── About ── */
 .about-grid {
@@ -278,16 +213,9 @@ h1 {
 }
 [data-theme="dark"] .card:hover { box-shadow: 0 8px 24px rgba(0,0,0,0.4); }
 .card.hidden { display: none; }
-.card-tag {
-  font-size: 0.75rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: var(--accent);
-  margin-bottom: 0.75rem;
-}
-.card h3 { font-size: 1.1rem; margin-bottom: 0.5rem; }
-.card p { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 1rem; flex: 1; }
+.card-tag { margin-bottom: 0.75rem; }
+.card h3 { margin-bottom: 0.5rem; }
+.card p { margin-bottom: 1rem; flex: 1; }
 .card-tech { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1.25rem; }
 .card-link {
   font-size: 0.85rem;
@@ -323,23 +251,15 @@ h1 {
   flex-direction: column;
   gap: 0.2rem;
 }
-.contact-label {
-  font-size: 0.75rem;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: var(--text-muted);
-  font-weight: 600;
-}
 .availability-badge {
   display: inline-block;
-  background: #dcfce7;
-  color: #166534;
+  background: var(--success-bg);
+  color: var(--success-text);
   border-radius: 99px;
   padding: 0.15rem 0.65rem;
   font-size: 0.8rem;
   font-weight: 600;
 }
-[data-theme="dark"] .availability-badge { background: #14532d; color: #86efac; }
 
 .social-links-left {
   display: flex;
@@ -392,11 +312,6 @@ h1 {
 }
 .form-group input.invalid,
 .form-group textarea.invalid { border-color: #ef4444; }
-.field-error {
-  font-size: 0.8rem;
-  color: #ef4444;
-  min-height: 1em;
-}
 
 .form-success {
   text-align: center;
@@ -406,15 +321,14 @@ h1 {
   width: 56px;
   height: 56px;
   border-radius: 50%;
-  background: #dcfce7;
-  color: #166534;
+  background: var(--success-bg);
+  color: var(--success-text);
   font-size: 1.5rem;
   display: flex;
   align-items: center;
   justify-content: center;
   margin: 0 auto 1rem;
 }
-[data-theme="dark"] .success-icon { background: #14532d; color: #86efac; }
 .form-success h3 { font-size: 1.3rem; margin-bottom: 0.5rem; }
 .form-success p { color: var(--text-muted); }
 
