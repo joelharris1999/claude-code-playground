@@ -453,6 +453,8 @@ h1 {
     padding: 0.75rem 1.5rem;
     font-size: 1rem;
   }
+  /* Push theme toggle to right of burger */
+  #theme-toggle { margin-left: 0; }
 
   /* Hero */
   .hero { flex-direction: column-reverse; gap: 2.5rem; text-align: center; min-height: auto; padding-top: 3rem; }
@@ -473,4 +475,15 @@ h1 {
 @media (max-width: 420px) {
   /* Very small screens: single column cards */
   .cards { grid-template-columns: 1fr; }
+}
+
+/* ── Scroll reveal ── */
+.reveal {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+.reveal.visible {
+  opacity: 1;
+  transform: none;
 }

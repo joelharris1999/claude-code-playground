@@ -1,98 +1,12 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Joel Harris — Developer</title>
-  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <header class="site-header">
-    <nav class="nav-inner">
-      <a href="index.html" class="logo">JH</a>
-      <button class="nav-burger" id="nav-burger" aria-label="Open menu" aria-expanded="false">
-        <span></span><span></span><span></span>
-      </button>
-      <ul class="nav-links" id="nav-links">
-        <li><a href="index.html" class="nav-active">Home</a></li>
-        <li><a href="projects.html">Projects</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
-      <button id="theme-toggle" aria-label="Toggle dark/light mode">
-        <span class="icon-sun">☀️</span>
-        <span class="icon-moon">🌙</span>
-      </button>
-    </nav>
-  </header>
-
-  <main>
-    <section class="hero">
-      <div class="hero-content">
-        <p class="eyebrow">Hello, I'm</p>
-        <h1>Joel Harris</h1>
-        <p class="tagline">Software developer building clean, thoughtful products.</p>
-        <div class="hero-actions">
-          <a href="projects.html" class="btn btn-primary">See my work</a>
-          <a href="contact.html" class="btn btn-secondary">Get in touch</a>
-        </div>
-      </div>
-      <div class="hero-visual" aria-hidden="true">
-        <div class="avatar">JH</div>
-      </div>
-    </section>
-
-    <section id="about" class="section">
-      <div class="container">
-        <h2 class="section-title">About me</h2>
-        <div class="about-grid">
-          <p>I'm a full-stack developer with a passion for building products that are fast, accessible, and easy to use. I care deeply about the details — both in code and in design.</p>
-          <p>When I'm not writing code, you'll find me reading, running, or tinkering with side projects. I'm always looking for interesting problems to solve.</p>
-        </div>
-        <div class="skills">
-          <span class="skill-tag">TypeScript</span>
-          <span class="skill-tag">React</span>
-          <span class="skill-tag">Node.js</span>
-          <span class="skill-tag">Python</span>
-          <span class="skill-tag">PostgreSQL</span>
-          <span class="skill-tag">AWS</span>
-        </div>
-      </div>
-    </section>
-
-    <section class="section section-alt">
-      <div class="container">
-        <h2 class="section-title">Featured work</h2>
-        <div class="cards">
-          <article class="card">
-            <div class="card-tag">Web App</div>
-            <h3>Project Alpha</h3>
-            <p>A real-time collaboration tool built with React and WebSockets. Handles thousands of concurrent users with sub-100ms latency.</p>
-            <a href="projects.html" class="card-link">View all projects →</a>
-          </article>
-          <article class="card">
-            <div class="card-tag">API</div>
-            <h3>Data Pipeline</h3>
-            <p>An event-driven data pipeline processing millions of records daily using Python, Kafka, and PostgreSQL.</p>
-            <a href="projects.html" class="card-link">View all projects →</a>
-          </article>
-          <article class="card">
-            <div class="card-tag">Open Source</div>
-            <h3>CLI Toolkit</h3>
-            <p>A collection of developer tools that automate repetitive tasks. Over 2k stars on GitHub.</p>
-            <a href="projects.html" class="card-link">View all projects →</a>
-          </article>
-        </div>
-        <div style="margin-top:2rem;text-align:center">
-          <a href="projects.html" class="btn btn-secondary">View all projects</a>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer class="site-footer">
-    <p>© 2026 Joel Harris · <a href="contact.html">Get in touch</a></p>
-  </footer>
-
-  <script src="script.js"></script>
+  <div id="root"></div>
+  <script type="module" src="/src/main.jsx"></script>
 </body>
 </html>
