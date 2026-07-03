@@ -2,14 +2,26 @@ import useReveal from '../useReveal.js'
 import weatherLogRaw from '../../weather-log.md?raw'
 
 const ENTRY_PATTERN =
-  /## (\d{4}-\d{2}-\d{2})\s*\n- \*\*Temperature:\*\* ([^\n(]+?)\s*\(low ([^\n/]+?) \/ high ([^\n)]+?)\)\s*\n- \*\*Summary:\*\* (.+)/g
+  /## (?<date>\d{4}-\d{2}-\d{2})\s*\n- \*\*Temperature:\*\* (?<temperature>[^\n(]+?)\s*\(low (?<low>[^\n/]+?) \/ high (?<high>[^\n)]+?)\)\s*\n(?:- \*\*Humidity:\*\* (?<humidity>[^\n]+)\s*\n)?(?:- \*\*Wind Speed:\*\* (?<wind>[^\n]+)\s*\n)?- \*\*Summary:\*\* (?<summary>.+)/g
 
 function parseWeatherLog(raw) {
-  const entries = [...raw.matchAll(ENTRY_PATTERN)].map(
-    ([, date, temperature, low, high, summary]) => ({ date, temperature, low, high, summary })
-  )
+  const entries = [...raw.matchAll(ENTRY_PATTERN)].map(match => ({ ...match.groups }))
   // Newest first
   return entries.reverse()
+}
+
+function getWeatherEmoji(summary = '') {
+  const s = summary.toLowerCase()
+  if (s.includes('thunder')) return '⛈️'
+  if (s.includes('snow')) return '🌨️'
+  if (s.includes('freezing rain')) return '🌧️❄️'
+  if (s.includes('rain') || s.includes('drizzle')) return '🌧️'
+  if (s.includes('fog')) return '🌫️'
+  if (s.includes('overcast')) return '☁️'
+  if (s.includes('partly cloudy')) return '⛅'
+  if (s.includes('mainly clear')) return '🌤️'
+  if (s.includes('clear')) return '☀️'
+  return '🌡️'
 }
 
 function formatDate(isoDate) {
@@ -47,11 +59,13 @@ export default function Weather() {
               {entries.map(entry => (
                 <article className="card" key={entry.date}>
                   <div className="card-tag">{formatDate(entry.date)}</div>
-                  <h3>{entry.temperature}</h3>
+                  <h3>{getWeatherEmoji(entry.summary)} {entry.temperature}</h3>
                   <p>{entry.summary}</p>
                   <div className="card-tech">
-                    <span className="skill-tag">Low {entry.low}</span>
-                    <span className="skill-tag">High {entry.high}</span>
+                    <span className="skill-tag">🔽 Low {entry.low}</span>
+                    <span className="skill-tag">🔼 High {entry.high}</span>
+                    {entry.humidity && <span className="skill-tag">💧 Humidity {entry.humidity}</span>}
+                    {entry.wind && <span className="skill-tag">💨 Wind {entry.wind}</span>}
                   </div>
                 </article>
               ))}
