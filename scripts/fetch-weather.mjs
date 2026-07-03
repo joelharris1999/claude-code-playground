@@ -52,7 +52,7 @@ async function fetchForecast() {
   const url = new URL('https://api.open-meteo.com/v1/forecast')
   url.searchParams.set('latitude', LATITUDE)
   url.searchParams.set('longitude', LONGITUDE)
-  url.searchParams.set('current', 'temperature_2m,weather_code')
+  url.searchParams.set('current', 'temperature_2m,relative_humidity_2m,wind_speed_10m,weather_code')
   url.searchParams.set('daily', 'temperature_2m_max,temperature_2m_min,weather_code')
   url.searchParams.set('timezone', 'Europe/London')
 
@@ -82,6 +82,10 @@ async function main() {
   const currentUnit = data.current_units.temperature_2m
   const high = data.daily.temperature_2m_max[0]
   const low = data.daily.temperature_2m_min[0]
+  const humidity = data.current.relative_humidity_2m
+  const humidityUnit = data.current_units.relative_humidity_2m
+  const windSpeed = data.current.wind_speed_10m
+  const windUnit = data.current_units.wind_speed_10m
   const summary = describeWeatherCode(data.current.weather_code)
 
   const existingLog = await loadExistingLog()
@@ -94,6 +98,8 @@ async function main() {
   const entry = [
     `\n## ${date}`,
     `- **Temperature:** ${currentTemp}${currentUnit} (low ${low}${currentUnit} / high ${high}${currentUnit})`,
+    `- **Humidity:** ${humidity}${humidityUnit}`,
+    `- **Wind Speed:** ${windSpeed}${windUnit}`,
     `- **Summary:** ${summary}`,
     '',
   ].join('\n')
