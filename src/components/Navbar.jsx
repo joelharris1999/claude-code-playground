@@ -25,6 +25,7 @@ export default function Navbar({ theme, toggleTheme }) {
         <ul className={`nav-links${open ? ' open' : ''}`}>
           <li><NavLink to="/" className={linkClass} onClick={() => setOpen(false)}>Home</NavLink></li>
           <li><NavLink to="/projects" className={linkClass} onClick={() => setOpen(false)}>Projects</NavLink></li>
+          <li><NavLink to="/weather" className={linkClass} onClick={() => setOpen(false)}>Weather</NavLink></li>
           <li><NavLink to="/contact" className={linkClass} onClick={() => setOpen(false)}>Contact</NavLink></li>
         </ul>
 
