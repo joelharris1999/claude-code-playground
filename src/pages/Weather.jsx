@@ -10,6 +10,20 @@ function parseWeatherLog(raw) {
   return entries.reverse()
 }
 
+function getWeatherEmoji(summary = '') {
+  const s = summary.toLowerCase()
+  if (s.includes('thunder')) return '⛈️'
+  if (s.includes('snow')) return '🌨️'
+  if (s.includes('freezing rain')) return '🌧️❄️'
+  if (s.includes('rain') || s.includes('drizzle')) return '🌧️'
+  if (s.includes('fog')) return '🌫️'
+  if (s.includes('overcast')) return '☁️'
+  if (s.includes('partly cloudy')) return '⛅'
+  if (s.includes('mainly clear')) return '🌤️'
+  if (s.includes('clear')) return '☀️'
+  return '🌡️'
+}
+
 function formatDate(isoDate) {
   return new Date(`${isoDate}T00:00:00`).toLocaleDateString('en-GB', {
     weekday: 'long',
@@ -45,13 +59,13 @@ export default function Weather() {
               {entries.map(entry => (
                 <article className="card" key={entry.date}>
                   <div className="card-tag">{formatDate(entry.date)}</div>
-                  <h3>{entry.temperature}</h3>
+                  <h3>{getWeatherEmoji(entry.summary)} {entry.temperature}</h3>
                   <p>{entry.summary}</p>
                   <div className="card-tech">
-                    <span className="skill-tag">Low {entry.low}</span>
-                    <span className="skill-tag">High {entry.high}</span>
-                    {entry.humidity && <span className="skill-tag">Humidity {entry.humidity}</span>}
-                    {entry.wind && <span className="skill-tag">Wind {entry.wind}</span>}
+                    <span className="skill-tag">🔽 Low {entry.low}</span>
+                    <span className="skill-tag">🔼 High {entry.high}</span>
+                    {entry.humidity && <span className="skill-tag">💧 Humidity {entry.humidity}</span>}
+                    {entry.wind && <span className="skill-tag">💨 Wind {entry.wind}</span>}
                   </div>
                 </article>
               ))}
