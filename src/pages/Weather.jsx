@@ -6,8 +6,9 @@ const ENTRY_PATTERN =
 
 function parseWeatherLog(raw) {
   const entries = [...raw.matchAll(ENTRY_PATTERN)].map(match => ({ ...match.groups }))
-  // Newest first
-  return entries.reverse()
+  // Newest first — sort explicitly rather than assuming file order, since
+  // same-day auto-merges can land entries out of chronological order.
+  return entries.sort((a, b) => b.date.localeCompare(a.date))
 }
 
 function getWeatherEmoji(summary = '') {
